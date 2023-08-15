@@ -14,5 +14,5 @@ COPY proto /proto
 RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 
 
-CMD protoc -I=/proto --go_out=/out /proto/addressbook.proto
+CMD for f in /proto/*; do protoc -I=/proto --go_out=/out $f; done
 
